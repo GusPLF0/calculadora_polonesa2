@@ -41,16 +41,21 @@ public class Pilha {
         lista = expressao.split(" ");
 
         for(String a:lista){
-            switch (a) {
-                case ("+") ->
-                        pilha.empilhar(String.valueOf(Integer.parseInt(pilha.desempilhar()) + Integer.parseInt(pilha.desempilhar())));
-                case ("-") ->
-                        pilha.empilhar(String.valueOf(Integer.parseInt(pilha.desempilhar()) - Integer.parseInt(pilha.desempilhar())));
-                case ("*") ->
-                        pilha.empilhar(String.valueOf(Integer.parseInt(pilha.desempilhar()) * Integer.parseInt(pilha.desempilhar())));
-                case ("/") ->
-                        pilha.empilhar(String.valueOf(Integer.parseInt(pilha.desempilhar()) / Integer.parseInt(pilha.desempilhar())));
-                default -> pilha.empilhar(a);
+            switch (a){
+                case("+"):
+                    pilha.empilhar(String.valueOf(Integer.parseInt(pilha.desempilhar()) + Integer.parseInt(pilha.desempilhar())));
+                    break;
+                case("-"):
+                    pilha.empilhar(String.valueOf(Integer.parseInt(pilha.desempilhar()) - Integer.parseInt(pilha.desempilhar())));
+                    break;
+                case("*"):
+                    pilha.empilhar(String.valueOf(Integer.parseInt(pilha.desempilhar()) * Integer.parseInt(pilha.desempilhar())));
+                    break;
+                case("/"):
+                    pilha.empilhar(String.valueOf(Integer.parseInt(pilha.desempilhar()) / Integer.parseInt(pilha.desempilhar())));
+                    break;
+                default:
+                    pilha.empilhar(a);
             }
         }
 
