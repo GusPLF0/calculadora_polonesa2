@@ -11,18 +11,7 @@ public class Pilha {
     }
 
     public boolean pilhaVazia(){
-        if(this.posicaoPilha == -1){
-            return true;
-        }
-        return false;
-    }
-
-    public String tamanho(){
-        if(this.pilhaVazia()){
-            return " ";
-        }
-        return this.pilha[this.posicaoPilha];
-
+        return this.posicaoPilha == -1;
     }
 
     public String desempilhar(){
@@ -46,27 +35,22 @@ public class Pilha {
 
         String lista[];
 
-        System.out.printf("Digite a expressão separada por espaço(1 2 3 + -): ");
+        System.out.print("Digite a expressão separada por espaço(1 2 3 + -): ");
         String expressao = sc.nextLine();
 
         lista = expressao.split(" ");
 
         for(String a:lista){
-            switch (a){
-                case("+"):
-                    pilha.empilhar(String.valueOf(Integer.parseInt(pilha.desempilhar()) + Integer.parseInt(pilha.desempilhar())));
-                    break;
-                case("-"):
-                    pilha.empilhar(String.valueOf(Integer.parseInt(pilha.desempilhar()) - Integer.parseInt(pilha.desempilhar())));
-                    break;
-                case("*"):
-                    pilha.empilhar(String.valueOf(Integer.parseInt(pilha.desempilhar()) * Integer.parseInt(pilha.desempilhar())));
-                    break;
-                case("/"):
-                    pilha.empilhar(String.valueOf(Integer.parseInt(pilha.desempilhar()) / Integer.parseInt(pilha.desempilhar())));
-                    break;
-                default:
-                    pilha.empilhar(a);
+            switch (a) {
+                case ("+") ->
+                        pilha.empilhar(String.valueOf(Integer.parseInt(pilha.desempilhar()) + Integer.parseInt(pilha.desempilhar())));
+                case ("-") ->
+                        pilha.empilhar(String.valueOf(Integer.parseInt(pilha.desempilhar()) - Integer.parseInt(pilha.desempilhar())));
+                case ("*") ->
+                        pilha.empilhar(String.valueOf(Integer.parseInt(pilha.desempilhar()) * Integer.parseInt(pilha.desempilhar())));
+                case ("/") ->
+                        pilha.empilhar(String.valueOf(Integer.parseInt(pilha.desempilhar()) / Integer.parseInt(pilha.desempilhar())));
+                default -> pilha.empilhar(a);
             }
         }
 
