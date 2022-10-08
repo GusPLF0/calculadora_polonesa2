@@ -2,27 +2,27 @@ import java.util.Scanner;
 
 public class Pilha {
 
-    public String[] pilha;
+    public int[] pilha;
     public int posicaoPilha;
 
     public Pilha(){
         this.posicaoPilha = -1;
-        this.pilha = new String[1000];
+        this.pilha = new int[1000];
     }
 
     public boolean pilhaVazia(){
         return this.posicaoPilha == -1;
     }
 
-    public String desempilhar(){
+    public int desempilhar(){
         if(pilhaVazia()){
-            return null;
+            return 0;
         }
 
         return this.pilha[this.posicaoPilha--];
     }
 
-    public void empilhar(String valor) {
+    public void empilhar(int valor) {
         // push
         if (this.posicaoPilha < this.pilha.length - 1) {
             this.pilha[++posicaoPilha] = valor;
@@ -43,19 +43,19 @@ public class Pilha {
         for(String a:lista){
             switch (a){
                 case("+"):
-                    pilha.empilhar(String.valueOf(Integer.parseInt(pilha.desempilhar()) + Integer.parseInt(pilha.desempilhar())));
+                    pilha.empilhar((pilha.desempilhar() + pilha.desempilhar()));
                     break;
                 case("-"):
-                    pilha.empilhar(String.valueOf(Integer.parseInt(pilha.desempilhar()) - Integer.parseInt(pilha.desempilhar())));
+                    pilha.empilhar((pilha.desempilhar() - pilha.desempilhar()));
                     break;
                 case("*"):
-                    pilha.empilhar(String.valueOf(Integer.parseInt(pilha.desempilhar()) * Integer.parseInt(pilha.desempilhar())));
+                    pilha.empilhar((pilha.desempilhar() * pilha.desempilhar()));
                     break;
                 case("/"):
-                    pilha.empilhar(String.valueOf(Integer.parseInt(pilha.desempilhar()) / Integer.parseInt(pilha.desempilhar())));
+                    pilha.empilhar((pilha.desempilhar() / pilha.desempilhar()));
                     break;
                 default:
-                    pilha.empilhar(a);
+                    pilha.empilhar(Integer.parseInt(a));
             }
         }
 
